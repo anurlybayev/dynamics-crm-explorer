@@ -29,6 +29,10 @@
 		75734CCD16E9349500B8D91C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 75734CC416E9349500B8D91C /* UIImageView+AFNetworking.m */; };
 		75734CCF16E934D600B8D91C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75734CCE16E934D600B8D91C /* MobileCoreServices.framework */; };
 		75734CD116E934F700B8D91C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75734CD016E934F700B8D91C /* SystemConfiguration.framework */; };
+		75734CD516E93A2800B8D91C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75734CD316E93A2700B8D91C /* LoginViewController.m */; };
+		75734CD616E93A2800B8D91C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75734CD416E93A2800B8D91C /* LoginViewController.xib */; };
+		75734CD916E93B2A00B8D91C /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 75734CD816E93B2900B8D91C /* XMLReader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75734CDC16E94ACA00B8D91C /* DynamicsRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 75734CDB16E94AC900B8D91C /* DynamicsRequestGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,13 @@
 		75734CC416E9349500B8D91C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		75734CCE16E934D600B8D91C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		75734CD016E934F700B8D91C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		75734CD216E93A2700B8D91C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		75734CD316E93A2700B8D91C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		75734CD416E93A2800B8D91C /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		75734CD716E93B2900B8D91C /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		75734CD816E93B2900B8D91C /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		75734CDA16E94AC900B8D91C /* DynamicsRequestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicsRequestGenerator.h; sourceTree = "<group>"; };
+		75734CDB16E94AC900B8D91C /* DynamicsRequestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicsRequestGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +136,13 @@
 				75734CA616E932BE00B8D91C /* ViewController.h */,
 				75734CA716E932BE00B8D91C /* ViewController.m */,
 				75734CA916E932BE00B8D91C /* ViewController.xib */,
+				75734CD216E93A2700B8D91C /* LoginViewController.h */,
+				75734CD316E93A2700B8D91C /* LoginViewController.m */,
+				75734CD416E93A2800B8D91C /* LoginViewController.xib */,
+				75734CD716E93B2900B8D91C /* XMLReader.h */,
+				75734CD816E93B2900B8D91C /* XMLReader.m */,
+				75734CDA16E94AC900B8D91C /* DynamicsRequestGenerator.h */,
+				75734CDB16E94AC900B8D91C /* DynamicsRequestGenerator.m */,
 				75734C9516E932BE00B8D91C /* Supporting Files */,
 			);
 			path = MSDynamicsCRMExplorer;
@@ -227,6 +245,7 @@
 				75734CA316E932BE00B8D91C /* Default@2x.png in Resources */,
 				75734CA516E932BE00B8D91C /* Default-568h@2x.png in Resources */,
 				75734CAB16E932BE00B8D91C /* ViewController.xib in Resources */,
+				75734CD616E93A2800B8D91C /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +268,9 @@
 				75734CCB16E9349500B8D91C /* AFURLConnectionOperation.m in Sources */,
 				75734CCC16E9349500B8D91C /* AFXMLRequestOperation.m in Sources */,
 				75734CCD16E9349500B8D91C /* UIImageView+AFNetworking.m in Sources */,
+				75734CD516E93A2800B8D91C /* LoginViewController.m in Sources */,
+				75734CD916E93B2A00B8D91C /* XMLReader.m in Sources */,
+				75734CDC16E94ACA00B8D91C /* DynamicsRequestGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
