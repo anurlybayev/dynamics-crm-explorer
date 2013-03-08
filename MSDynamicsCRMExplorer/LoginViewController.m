@@ -60,15 +60,17 @@ NSString *const kUserDefaultsKeyPassword = @"Dynamics CRM Password";
 
 - (IBAction)login:(id)sender
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (self.remember.on) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.organizationName.text forKey:kUserDefaultsKeyOrganizationName];
         [defaults setObject:self.username.text forKey:kUserDefaultsKeyUsername];
         [defaults setObject:self.password.text forKey:kUserDefaultsKeyPassword];
-        [defaults synchronize];
     } else {
-        [NSUserDefaults resetStandardUserDefaults];
+        [defaults removeObjectForKey:kUserDefaultsKeyOrganizationName];
+        [defaults removeObjectForKey:kUserDefaultsKeyUsername];
+        [defaults removeObjectForKey:kUserDefaultsKeyPassword];
     }
+    [defaults synchronize];
     NSString *wsdlURL = [NSString stringWithFormat:@"%@?wsdl", kPortalURL];
     wsdlURL = [NSString stringWithFormat:wsdlURL, self.organizationName.text];
     
@@ -162,13 +164,23 @@ NSString *const kUserDefaultsKeyPassword = @"Dynamics CRM Password";
              if (error) {
                  [self.delegate loginViewController:self didFailAuthenticationWithError:error];
              } else {
-                 NSDictionary *encryptedData = [json valueForKeyPath:@"Envelope.Body.RequestSecurityTokenResponse.RequestedSecurityToken.EncryptedData"];
-                 NSString *token1 = [XMLReader textValueFromTextNode:[encryptedData valueForKeyPath:@"CipherData.CipherValue"]];
-                 NSDictionary *encryptedKey = [encryptedData valueForKeyPath:@"KeyInfo.EncryptedKey"];
-                 NSString *token0 = [XMLReader textValueFromTextNode:[encryptedKey valueForKeyPath:@"CipherData.CipherValue"]];
-                 NSDictionary *keyIdentifier = [encryptedKey valueForKeyPath:@"KeyInfo.SecurityTokenReference.KeyIdentifier"];
-                 NSString *key = [keyIdentifier objectForKey:@"text"];
-                 [self.delegate loginViewController:self didFinishAuthenticationWithToken0:token0 token1:token1 keyIdentifier:key organizationName:self.organizationName.text];
+                 if ([json valueForKeyPath:@"Envelope.Body.Fault"]) {
+                     NSDictionary *reason = [json valueForKeyPath:@"Envelope.Body.Fault.Reason.Text"];
+                     NSError *authError = [NSError errorWithDomain:@"LoginViewControllerDomain"
+                                                              code:401
+                                                          userInfo:@{NSLocalizedDescriptionKey: [reason objectForKey:@"text"]}];
+                     [self.delegate loginViewController:self
+                         didFailAuthenticationWithError:authError];
+                     
+                 } else {
+                     NSDictionary *encryptedData = [json valueForKeyPath:@"Envelope.Body.RequestSecurityTokenResponse.RequestedSecurityToken.EncryptedData"];
+                     NSString *token1 = [XMLReader textValueFromTextNode:[encryptedData valueForKeyPath:@"CipherData.CipherValue"]];
+                     NSDictionary *encryptedKey = [encryptedData valueForKeyPath:@"KeyInfo.EncryptedKey"];
+                     NSString *token0 = [XMLReader textValueFromTextNode:[encryptedKey valueForKeyPath:@"CipherData.CipherValue"]];
+                     NSDictionary *keyIdentifier = [encryptedKey valueForKeyPath:@"KeyInfo.SecurityTokenReference.KeyIdentifier"];
+                     NSString *key = [keyIdentifier objectForKey:@"text"];
+                     [self.delegate loginViewController:self didFinishAuthenticationWithToken0:token0 token1:token1 keyIdentifier:key organizationName:self.organizationName.text];
+                 }
              }
          }];
      }
