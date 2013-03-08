@@ -32,6 +32,7 @@ NSUInteger const kJSON = 1;
 
 - (IBAction)sendQuery:(id)sender;
 - (IBAction)changeResponse:(UISegmentedControl *)sender;
+- (IBAction)clear:(id)sender;
 
 - (BOOL)canAuthorize;
 
@@ -146,6 +147,11 @@ NSUInteger const kJSON = 1;
     } else {
         self.responseView.text = self.jsonResponse;
     }
+}
+
+- (IBAction)clear:(id)sender
+{
+    self.responseView.text = @"";
 }
 
 - (NSURL *)portalURL
