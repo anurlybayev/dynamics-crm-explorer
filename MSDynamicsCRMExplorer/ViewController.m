@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import "AFSOAPRequestOperation.h"
 #import "XMLReader.h"
 #import "DynamicsRequestGenerator.h"
 
@@ -102,7 +103,7 @@ NSUInteger const kJSON = 1;
                                 [request setValue:@"application/soap+xml" forHTTPHeaderField:@"Accept"];
                                 request.HTTPBody = [soapEnvelope dataUsingEncoding:NSUTF8StringEncoding];
                                 self.currentOperation =
-                                [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request
+                                [AFSOAPRequestOperation XMLParserRequestOperationWithRequest:request
                                                                                     success:
                                  ^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
                                      [XMLReader parseXMLWithNSXMLParser:XMLParser

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75657FCD16EF8B1A00CF4E5F /* AFSOAPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75657FCC16EF8B1A00CF4E5F /* AFSOAPRequestOperation.m */; };
 		75734C8F16E932BE00B8D91C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75734C8E16E932BE00B8D91C /* UIKit.framework */; };
 		75734C9116E932BE00B8D91C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75734C9016E932BE00B8D91C /* Foundation.framework */; };
 		75734C9316E932BE00B8D91C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75734C9216E932BE00B8D91C /* CoreGraphics.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75657FCB16EF8B1A00CF4E5F /* AFSOAPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSOAPRequestOperation.h; sourceTree = "<group>"; };
+		75657FCC16EF8B1A00CF4E5F /* AFSOAPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSOAPRequestOperation.m; sourceTree = "<group>"; };
 		75734C8B16E932BE00B8D91C /* MSDynamicsCRMExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSDynamicsCRMExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75734C8E16E932BE00B8D91C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		75734C9016E932BE00B8D91C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 				75734CD416E93A2800B8D91C /* LoginViewController.xib */,
 				75734CD716E93B2900B8D91C /* XMLReader.h */,
 				75734CD816E93B2900B8D91C /* XMLReader.m */,
+				75657FCB16EF8B1A00CF4E5F /* AFSOAPRequestOperation.h */,
+				75657FCC16EF8B1A00CF4E5F /* AFSOAPRequestOperation.m */,
 				75734CDA16E94AC900B8D91C /* DynamicsRequestGenerator.h */,
 				75734CDB16E94AC900B8D91C /* DynamicsRequestGenerator.m */,
 				75734C9516E932BE00B8D91C /* Supporting Files */,
@@ -271,6 +276,7 @@
 				75734CD516E93A2800B8D91C /* LoginViewController.m in Sources */,
 				75734CD916E93B2A00B8D91C /* XMLReader.m in Sources */,
 				75734CDC16E94ACA00B8D91C /* DynamicsRequestGenerator.m in Sources */,
+				75657FCD16EF8B1A00CF4E5F /* AFSOAPRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +401,7 @@
 				75734CB016E932BE00B8D91C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

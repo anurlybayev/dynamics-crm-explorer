@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "AFNetworking.h"
+#import "AFSOAPRequestOperation.h"
 #import "XMLReader.h"
 #import "DynamicsRequestGenerator.h"
 
@@ -75,8 +76,8 @@ NSString *const kUserDefaultsKeyPassword = @"Dynamics CRM Password";
     wsdlURL = [NSString stringWithFormat:wsdlURL, self.organizationName.text];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:wsdlURL]];
-    AFXMLRequestOperation *operation =
-    [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request
+    AFSOAPRequestOperation *operation =
+    [AFSOAPRequestOperation XMLParserRequestOperationWithRequest:request
                                                         success:
      ^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
          [XMLReader parseXMLWithNSXMLParser:XMLParser completionHandler:^(id json, NSError *error) {
@@ -100,8 +101,8 @@ NSString *const kUserDefaultsKeyPassword = @"Dynamics CRM Password";
     NSURL *url = [NSURL URLWithString:wsdlImportURL];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
-    AFXMLRequestOperation *operation =
-    [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request
+    AFSOAPRequestOperation *operation =
+    [AFSOAPRequestOperation XMLParserRequestOperationWithRequest:request
                                                         success:
      ^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
          [XMLReader parseXMLWithNSXMLParser:XMLParser completionHandler:^(id json, NSError *error) {
@@ -156,8 +157,8 @@ NSString *const kUserDefaultsKeyPassword = @"Dynamics CRM Password";
     [request setValue:@"application/soap+xml" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/xml" forHTTPHeaderField:@"Accept"];
     request.HTTPBody = [envelope dataUsingEncoding:NSUTF8StringEncoding];
-    AFXMLRequestOperation *operation =
-    [AFXMLRequestOperation XMLParserRequestOperationWithRequest:request
+    AFSOAPRequestOperation *operation =
+    [AFSOAPRequestOperation XMLParserRequestOperationWithRequest:request
                                                         success:
      ^(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser) {
          [XMLReader parseXMLWithNSXMLParser:XMLParser completionHandler:^(id json, NSError *error) {
