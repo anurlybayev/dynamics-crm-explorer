@@ -128,6 +128,25 @@ NSUInteger const kJSON = 1;
                                  }
                                                                                     failure:
                                  ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser) {
+                                     [XMLReader parseXMLWithNSXMLParser:XMLParser
+                                                      completionHandler:^(id json, NSError *error) {
+                                                          if (error) {
+                                                              [[[UIAlertView alloc] initWithTitle:@"Parsing Failed"
+                                                                                          message:[error localizedDescription]
+                                                                                         delegate:nil
+                                                                                cancelButtonTitle:@"OK"
+                                                                                otherButtonTitles:nil] show];
+                                                          } else {
+                                                              self.xmlResponse = self.currentOperation.responseString;
+                                                              self.jsonResponse = [json description];
+                                                              if (self.xmlJsonSegment.selectedSegmentIndex == kXML) {
+                                                                  self.responseView.text = self.xmlResponse;
+                                                              } else {
+                                                                  self.responseView.text = self.jsonResponse;
+                                                              }
+                                                              self.currentOperation = nil;
+                                                          }
+                                                      }];
                                      [[[UIAlertView alloc] initWithTitle:@"Query Failed"
                                                                  message:[error localizedDescription]
                                                                 delegate:nil
